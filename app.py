@@ -13,7 +13,7 @@ CORS(app)
 api = Api(app)
 
 modelfile = 'models/final_prediction.pickle'
-    model = p.load(open(modelfile, 'rb'))
+model = p.load(open(modelfile, 'rb'))
 
 class Predict(Resource):
     def post(self):
