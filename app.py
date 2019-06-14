@@ -12,6 +12,9 @@ CORS(app)
 
 api = Api(app)
 
+modelfile = 'models/final_prediction.pickle'
+    model = p.load(open(modelfile, 'rb'))
+
 class Predict(Resource):
     def post(self):
         json_data = request.get_json()
@@ -49,6 +52,4 @@ class Predict(Resource):
 api.add_resource(Predict, '/api/predict')
 
 if __name__ == '__main__':
-    modelfile = 'models/final_prediction.pickle'
-    model = p.load(open(modelfile, 'rb'))
     app.run(debug=True)
